@@ -194,7 +194,7 @@
 
 // export default Header;
 
-
+import Login from './Login';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Header.css';
@@ -204,12 +204,14 @@ const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
+  const [amount, setAmount] = useState(0);
 
   useEffect(() => {
     axios
       .get('https://content.newtonschool.co/v1/pr/63b6c911af4f30335b4b3b89/products')
       .then((response) => {
         setProducts(response.data);
+        console.log(response);
       })
       .catch((error) => {
         console.log(error);
@@ -240,9 +242,19 @@ const Header = () => {
   };
 
   const handleAddToCart = (product) => {
-    setCart([...cart, product]);
-    console.log(`${product.name} added to cart`);
+
+    setCart([...cart,product]);
+    console.log(cart);
+    console.log(`${product.title} added to cart`);
   };
+
+  const getSum = () =>{
+    let sum=0;
+        for (let i = 0; i < cart.length; i++) {
+          sum += cart[i].price;
+        }
+       return sum;
+  }
 
   return (
     <div className="header">
@@ -250,6 +262,7 @@ const Header = () => {
         <div className="logo">
           <img src="https://www.flipkart.com/flipkart-logo.png" alt="Flipkart logo" />
         </div>
+      
         <form onSubmit={handleSearchSubmit}>
           <div className="search-bar">
             <input
@@ -262,7 +275,8 @@ const Header = () => {
           </div>
         </form>
       </div>
-      <div className="header-row">
+      <Login/>
+      {/* <div className="header-row">
         <div className="user-actions">
           {isLoggedIn ? (
             <button onClick={handleLogout}>Logout</button>
@@ -273,15 +287,19 @@ const Header = () => {
             </>
           )}
         </div>
-      </div>
+      </div> */}
       <div className="header-row">
        
         <div className="products" style={{display:"grid", gridTemplateColumns:"2fr 2fr 2fr 2fr"}}>
           {products.map((product) => (
             <div key={product.id} className="product" >
-              <img style={{height: "200px",width:"200px"}}  src={product.image} alt={product.name} />
-                <h4>{product.name}</h4>
+              <img style={{height: "200px",width:"200px"}}  src={product.image} alt={product.name}  />
+                <h4>{product.title}</h4>
                 <p>{product.price}</p>
+                {/* <p  style={{fontSize:"5"}}>{product.description}</p> */}
+                {/* <p  style={{fontSize:"7px"}}>{product.description}</p>
+                 */}
+                
                 <button onClick={() => handleAddToCart(product)}>Add to Cart</button>
                 </div>
             ))}
@@ -289,10 +307,11 @@ const Header = () => {
 <div className="cart">
 <h3>Cart</h3>
 {cart.map((product) => (
+ 
 <div key={product.id} className="cart-item">
 <img  style={{height: "200px",width:"200px"}} src={product.image} alt={product.name} />
 <h4>{product.name}</h4>
-<p>{product.price}</p>
+<p>{product.price}---{getSum()}</p>
 </div>
 ))}
 </div>
