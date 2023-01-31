@@ -311,9 +311,10 @@ const Header = () => {
 <div key={product.id} className="cart-item">
 <img  style={{height: "200px",width:"200px"}} src={product.image} alt={product.name} />
 <h4>{product.name}</h4>
-<p>{product.price}---{getSum()}</p>
+<p>{product.price}--</p>
 </div>
 ))}
+<p> TotalCartValue: {getSum()}</p>
 </div>
 </div>
 </div>
