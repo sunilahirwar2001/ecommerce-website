@@ -2,14 +2,17 @@
 import './App.css';
 import Header from './Header';
 import Login from './Login';
+
 function App() {
   return (
 
-    <h2>
+    <div>
       
       <Header/>
-    
-    </h2>
+      {/* <Login/> */}
+
+
+    </div>
   );
 }
 

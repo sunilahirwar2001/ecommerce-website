@@ -80,12 +80,12 @@ function Login() {
     } 
 
   return (
-    <div>
+    <div className="login-div">
       {
         valUser ? (<div><p>Welcome, {username}</p><button onClick={handleLogout}>Logout</button></div>) : ""
       }
       {
-        !isLoggedIn ? (<div> <button onClick={handleLogin}>Login</button>
+        !isLoggedIn ? (<div> <button onClick={handleLogin} className='login'>Login</button>
         <button onClick={handleSignUp}>SignUp</button></div>) :""
       }
 
@@ -97,14 +97,14 @@ function Login() {
           <label>
             Username:
             <input
-              type="text" placeholder=""
+              type="text" placeholder="" required
               onChange={(e) => setUsername(e.target.value)}
             />
           </label>
           <label>
             Passward
             <input
-              type="password" placeholder="Password"
+              type="password" placeholder="Password" required
               onChange={(e) => setPassword(e.target.value)}
             />
           </label>
@@ -125,7 +125,7 @@ function Login() {
 
 <label>Email</label>
            <input
-              type="email"
+              type="email" required
              
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -133,7 +133,7 @@ function Login() {
 <label>mobile</label>
            <input
               type="number"
-             
+             required
               onChange={(e) => setMobile(e.target.value)}
             />
 
@@ -141,6 +141,7 @@ function Login() {
 <label>Passward</label>
            <input
               type="passward"
+              required
              
               onChange={(e) => setPassword(e.target.value)}
             />

@@ -1,0 +1,99 @@
+ /* .header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #2F2E41;
+    color: #FFFFFF;
+   
+ }
+  
+
+  .logo{
+    font-size: 1.5em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  
+
+  }
+  
+  .header-row{
+    display: flex;
+    
+  }
+  
+  .search-bar{
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+    padding: 30px 23px;
+    justify-content: flex-end;
+    background-color: #1B9CFC;
+
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    justify-content: flex-end;
+  }
+  .search-bar{
+    background-color: green;
+    color: green;
+    display: flex;
+  
+    
+  }
+  .logo{
+    width: 50px;
+    height: 70px;
+  }
+  
+  search-bar:hover{
+    background-color: #1B9CFC;
+  }
+     */
+     .header-main{
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 30px;
+      padding: 23px;
+      gap:5%
+     }
+
+
+     img{
+
+      height: 80px;
+      width: 80px;
+     }
+     .logo{
+      background-color: blue;
+     }
+     .search-bar{
+      display: flex;
+     justify-content: center;
+    padding: 13px;
+    margin: 12px;
+    
+     }
+    .sss{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      justify-content: flex-end;
+     
+    }
+    .modalClass {  
+      text-align: center;  
+      margin-top: 100px;  
+    }  
+    
+    .login-div{
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+  }
